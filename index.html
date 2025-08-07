@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahu?!Tempe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* BUAT PERAWAL / MENENTUKAN VARIABLENYA DAN AGAR SEMUA TERTATA RAPI*/
+        :root {
+            --primary: rgb(131, 99, 41);
+            --bg: rgb(207, 207, 207);
+            --dark: rgb(26, 26, 26);
+            --shadow: 0 4px 12px rgb(0, 0, 0, 0.1);
+            --border-radius: 0.8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            text-decoration: none;
+            border: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+        }
+
+        /* NAVBARNYA  */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgb(225, 225, 225);
+            border-bottom: 1px solid #e0d8cc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999999999999999999999;
+            backdrop-filter: blur(4px);
+        }
+
+        .navbar .logonav {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .navbar .logonav span {
+            color: var(--primary);
+        }
+
+        .navbar .navbar-nav a {
+            display: inline-block;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .navbar .navbar-nav a:after {
+            content: ' ';
+            display: block;
+            padding-bottom: 0.2rem;
+            border-bottom: 0.1rem solid var(--dark);
+            transform: scaleX(0);
+            transition: 0.2s linear;
+        }
+
+        .navbar .navbar-nav a:hover::after {
+            transform: scaleX(0.5);
+        }
+
+        .navbar .navbar-extra a {
+            color: var(--dark);
+            margin: 0 0.5rem;
+            transition: color 0.2s;
+            position: relative;
+            /* Diperlukan untuk badge */
+        }
+
+        .navbar .navbar-extra a:hover {
+            color: var(--primary);
+        }
+
+        #hamburger-menu {
+            display: none;
+        }
+
+        /* badge keranjang(nanti) */
+        .cart-badge {
+
+        }
+
+        .navbar .search-form {
+            position: absolute;
+            top: 100%;
+            right: 7%;
+            background-color: #fff;
+            width: 40rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: 0.3s;
+        }
+
+        .navbar .search-form.active {
+            transform: scaleY(1);
+        }
+
+        .navbar .search-form input {
+            height: 100%;
+            width: 100%;
+            font-size: 1.2rem;
+            color: var(--dark);
+            padding: 1rem;
+            background: transparent;
+        }
+
+        .navbar .search-form label {
+            cursor: pointer;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            color: var(--dark);
+        }
+
+        /* Shopping Cart */
+        .shopping-cart {
+            position: absolute;
+            top: 100%;
+            right: -100%;
+            height: calc(100vh - 100%);
+            width: 35rem;
+            padding: 2rem;
+            background-color: var(--bg);
+            color: var(--dark);
+            transition: 0.3s ease;
+            border-left: 1px solid #e0d8cc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shopping-cart.active {
+            right: 0;
+        }
+
+        #cart-items-container {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .shopping-cart .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed #ccc;
+            position: relative;
+        }
+
+        .shopping-cart img {
+            height: 6rem;
+            width: 6rem;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+        }
+
+        .shopping-cart h3 {
+            font-size: 1.2rem;
+        }
+
+        .shopping-cart .item-price {
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .shopping-cart .remove-item {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .shopping-cart .remove-item:hover {
+            color: var(--primary);
+        }
+
+        /*  Total dan Checkout ( nanti)*/
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#" class="logonav">Tahu?!Tempe</a>
+
+        <div class="navbar-nav">
+            <a href="#home">beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="menu">Menu</a>
+            <a href="#contact">Kontak </a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search-button"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart-button">
+                <i data-feather="shopping-cart"></i>
+                <span class="cart-badge" style="display: none;">0</span>
+            </a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Cari produk...">
+            <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+
+        <div class="shopping-cart">
+            <div id="cart-items-container">
+            </div>
+            <div class="cart-total">
+                <h4>Total Belanja:</h4>
+                <p id="cart-total-price">IDR 0</p>
+                <a href="#" class="cart-checkout-btn">Checkout Sekarang</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

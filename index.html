@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tahu?!Tempe</title>
+    <title>olika bröd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
@@ -335,6 +335,63 @@
             background-color: #a57f46;
         }
 
+        /* About, menu , kontak agar kotaknya sama dan ya biar rapi */
+        .about,
+        .menu,
+        .contact {
+            padding: 8rem 7% 1.4rem;
+        }
+
+        .about h2,
+        .menu h2,
+        .contact h2 {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 3rem;
+        }
+
+        .about h2 span,
+        .menu h2 span,
+        .contact h2 span {
+            color: var(--primary);
+        }
+
+        /* ABOUT LANJUTANNYA YANG DIATAS */
+        .about .row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .about .row .about-img {
+            flex: 1 1 25rem;
+        }
+
+        .about .row .about-img img {
+            width: 100%;
+            border-radius: var(--border-radius);
+        }
+
+        .about .row .content {
+            flex: 1 1 35rem;
+            padding: 0 1rem;
+        }
+
+        .about .row .content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about .row .content p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -382,12 +439,35 @@
 
         <main class="content">
             <h1>Sajian <span>Roti Swedia</span> Yang Istimewa </h1>
-            <p>Nikmati cita rasa dari roti Swedia yang sangat istimewa berkualitas premium dna dibuat oleh orang Swedia asli</p>
+            <p>Nikmati cita rasa dari roti Swedia yang sangat istimewa berkualitas premium dna dibuat oleh orang Swedia
+                asli</p>
             <a href="#menu" class="cta"> Beli Sekarang</a>
         </main>
     </section>
-    <!-- ABOUT(nanti) -->
-     <!--MENU (NANTI) -->
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <h2>Tentang <span>Kami</span></h2>
+        <div class="row">
+            <div class="about-img">
+                <img src="items/about img.jpg" alt="image about">
+            </div>
+            <div class="content">
+                <h3> Kenapa memilih roti kami?</h3>
+                <p><strong>Olika Bröd</strong> berarti 'Roti yang Berbeda' dalam bahasa Swedia, dan
+                    itulah misi kami: menyajikan cita rasa roti Swedia yang otentik untuk Anda. Setiap roti kami dibuat
+                    dengan tangan (<em>handmade</em>) menggunakan resep warisan keluarga, memastikan setiap gigitan
+                    membawa Anda pada kehangatan tradisi Swedia. Kami hanya menggunakan bahan-bahan alami berkualitas
+                    terbaik tanpa tambahan pengawet, karena kami percaya roti yang baik adalah roti yang jujur dan
+                    sederhana.</p>
+                <p>Kami lebih dari sekadar toko roti; kami ingin berbagi sepotong budaya Swedia. Nikmati
+                    aroma khas kapulaga dan kayu manis, tekstur roti gandum hitam yang kaya, dan nikmati momen
+                    <em>fika</em>—tradisi Swedia untuk rehat sejenak sambil menikmati kopi dan roti. Memilih Olika Bröd
+                    berarti memilih kualitas, keaslian, dan sebuah cerita dalam setiap rotinya.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--MENU (NANTI) -->
     <!-- KONTAK(NANTI) -->
     <!-- FOOTER(NANTI) -->
 
@@ -432,7 +512,7 @@
             }
         });
         // untuk AGAR BACKGRUOUND NYA GANTI2
-          const backgrounds = document.querySelectorAll('.hero-background');
+        const backgrounds = document.querySelectorAll('.hero-background');
         let currentBgIndex = 0;
 
         setInterval(() => {

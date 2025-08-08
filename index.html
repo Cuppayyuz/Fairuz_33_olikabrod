@@ -392,6 +392,86 @@
             font-weight: 300;
             line-height: 1.6;
         }
+
+        /* Menu lanjutan stylenya */
+        .menu p,
+        .contact p {
+            text-align: center;
+            max-width: 35rem;
+            margin: auto;
+            font-weight: 300;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu .menu-card {
+            background-color: #fff;
+            text-align: center;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s transform, 0.3s opacity, 0.3s height;
+            position: relative;
+        }
+
+        .menu .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu .menu-card .menu-icons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .menu .menu-card .menu-icons a {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .menu .menu-card .menu-icons a:hover {
+            background-color: var(--primary);
+        }
+
+        .menu .menu-card .menu-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu .menu-card .menu-content {
+            padding: 1rem;
+        }
+
+        .menu .menu-card .menu-card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu .menu-card .menu-card-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        /* Contact (nanti aja) */
     </style>
 </head>
 
@@ -453,21 +533,85 @@
             </div>
             <div class="content">
                 <h3> Kenapa memilih roti kami?</h3>
-                <p><strong>Olika Bröd</strong> berarti 'Roti yang Berbeda' dalam bahasa Swedia, dan
-                    itulah misi kami: menyajikan cita rasa roti Swedia yang otentik untuk Anda. Setiap roti kami dibuat
-                    dengan tangan (<em>handmade</em>) menggunakan resep warisan keluarga, memastikan setiap gigitan
-                    membawa Anda pada kehangatan tradisi Swedia. Kami hanya menggunakan bahan-bahan alami berkualitas
-                    terbaik tanpa tambahan pengawet, karena kami percaya roti yang baik adalah roti yang jujur dan
-                    sederhana.</p>
-                <p>Kami lebih dari sekadar toko roti; kami ingin berbagi sepotong budaya Swedia. Nikmati
-                    aroma khas kapulaga dan kayu manis, tekstur roti gandum hitam yang kaya, dan nikmati momen
-                    <em>fika</em>—tradisi Swedia untuk rehat sejenak sambil menikmati kopi dan roti. Memilih Olika Bröd
-                    berarti memilih kualitas, keaslian, dan sebuah cerita dalam setiap rotinya.
-                </p>
+                <p><strong>Olika Bröd</strong> ("Roti yang Berbeda") menyajikan roti otentik khas Swedia. Setiap roti
+                    dibuat dengan tangan (<em>handmade</em>) menggunakan resep warisan keluarga dan bahan-bahan alami
+                    terbaik tanpa pengawet. Kami tidak hanya menjual roti, tapi juga ingin berbagi kehangatan tradisi
+                    dan budaya Swedia dalam setiap gigitan.
             </div>
         </div>
     </section>
-    <!--MENU (NANTI) -->
+    <!--MENU  -->
+    <section class="menu" id="menu">
+        <h2>Menu <span>Kami</span></h2>
+        <p>Pilihan roti otentik Swedia yang dibuat dengan bahan-bahan terbaik, siap menemani momen spesial Anda.</p>
+
+        <div class="row">
+
+            <div class="menu-card" data-product-id="p1" data-product-image="items/kanelbullar.jpg"
+                data-product-title="Kanelbullar" data-product-price="12500" data-product-description="Roti kayu manis khas Swedia yang terbuat dari adonan kapulaga 
+                yang manis dan bermentega, serta isian kayu manis dan gula merah. ">
+                <div class="menu-icons">
+                    <a href="#" class="add-to-cart-button"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="menu-image">
+                    <img src="items/kanelbullar.jpg" alt="Kanelbullar">
+                </div>
+                <div class="menu-content">
+                    <h3 class="menu-card-title">Kanelbullar</h3>
+                    <p class="menu-card-price">IDR 12.500</p>
+                </div>
+            </div>
+
+            <div class="menu-card" data-product-id="p2" data-product-image="items/semla.jpeg" data-product-title="Semla"
+                data-product-price="18000"
+                data-product-description="Roti manis berisi krim almond dan whipped cream yang lembut.">
+                <div class="menu-icons">
+                    <a href="#" class="add-to-cart-button"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="menu-image">
+                    <img src="items/semla.jpeg" alt="Semla">
+                </div>
+                <div class="menu-content">
+                    <h3 class="menu-card-title">Semla</h3>
+                    <p class="menu-card-price">IDR 15.000</p>
+                </div>
+            </div>
+
+            <div class="menu-card" data-product-id="p3" data-product-image="items/kavring.jpg"
+                data-product-title="Kavring" data-product-price="25000" data-product-description="Roti gandum hitam yang sedikit manis, lembut, dan harum, sering disantap 
+                dengan gravlax, acar herring, atau ham Natal. ">
+                <div class="menu-icons">
+                    <a href="#" class="add-to-cart-button"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="menu-image">
+                    <img src="items/kavring.jpg" alt="Kavring">
+                </div>
+                <div class="menu-content">
+                    <h3 class="menu-card-title">Kavring</h3>
+                    <p class="menu-card-price">IDR 25.000</p>
+                </div>
+            </div>
+
+            <div class="menu-card" data-product-id="p4" data-product-image="items/lussekatt.jpg"
+                data-product-title="Lussekatt" data-product-price="15000" data-product-description="Roti manis berwarna kuning cerah yang dibumbui dengan saffron,
+                 biasanya dinikmati saat perayaan Luciafest. ">
+                <div class="menu-icons">
+                    <a href="#" class="add-to-cart-button"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+                </div>
+                <div class="menu-image">
+                    <img src="items/lussekatter.jpg" alt="Lussekatt">
+                </div>
+                <div class="menu-content">
+                    <h3 class="menu-card-title">Lussekatt</h3>
+                    <p class="menu-card-price">IDR 15.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- KONTAK(NANTI) -->
     <!-- FOOTER(NANTI) -->
 
